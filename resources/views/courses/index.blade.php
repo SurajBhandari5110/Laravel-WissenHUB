@@ -1,47 +1,91 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>
+        Wissen Hub
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
     <style>
-        .course-card:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transform: scale(1.03);
-            transition: all 0.3s ease;
-        }
-
-        .course-card img {
-            max-height: 200px;
-            object-fit: cover;
-            border-top-left-radius: 0.5rem;
-            border-top-right-radius: 0.5rem;
+        body {
+            font-family: 'Roboto', sans-serif;
         }
     </style>
 </head>
-<body>
-<div class="container mt-5">
-    <h1 class="text-center mb-4">Available Courses</h1>
-    <div class="row">
+<body class="bg-gray-900 text-white">
+<header class="bg-gray-800 bg-opacity-75 fixed w-full z-10">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+        <div class="flex items-center">
+            <img alt="Wissen Hub Logo" class="mr-2" height="40" src="https://storage.googleapis.com/a1aa/image/Wexbeu88A9u1QUbfskg9ahZH7u77iRQVjSbmLEG67DOf1kjQB.jpg" width="40"/>
+            <span class="text-xl font-bold">
+                Wissen
+                <span class="text-green-500">
+                    hub
+                </span>
+            </span>
+        </div>
+        <nav class="space-x-4">
+            <a class="text-white hover:text-green-500" href="#">
+                Home
+            </a>
+            <a class="text-white hover:text-green-500" href="#">
+                Courses
+            </a>
+            <a class="text-white hover:text-green-500" href="#">
+                Our Teachers
+            </a>
+            <a class="text-white hover:text-green-500" href="#">
+                About
+            </a>
+            <a class="text-white hover:text-green-500" href="#">
+                Contact
+            </a>
+        </nav>
+    </div>
+</header>
+<main class="pt-20">
+    <section class="relative h-screen bg-cover bg-center" style="background-image: url('https://img.freepik.com/free-vector/woman-working-new-app_23-2148682102.jpg?t=st=1737879675~exp=1737883275~hmac=e17ba6338cfe9e14b516920d13a2eb1b74ad63273d3392f2d96a20b771ca7e8e&w=1060');">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center">
+            <h1 class="text-5xl md:text-6xl font-light">
+                Let's Start
+                <span class="font-bold">
+                    learning
+                </span>
+            </h1>
+            <p class="text-2xl md:text-3xl mt-4">
+                Something new today!
+            </p>
+        </div>
+    </section>
+    
+    <section class="py-12">
+    <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         @foreach ($courses as $course)
-            <div class="col-md-4">
-                <div class="card course-card mb-4">
-                    <!-- Display the course image -->
-                    @if($course->image)
-                        <img src="{{ asset( $course->image) }}" alt="{{ $course->name }}" class="card-img-top">
-                    @else
-                        <img src="https://via.placeholder.com/300x200?text=No+Image" alt="No Image" class="card-img-top">
-                    @endif
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $course->name }}</h5>
-                        <a href="{{ route('courses.show', $course->course_id) }}" class="btn btn-primary">View Course</a>
-                    </div>
-                </div>
+        <div class="bg-white shadow-md rounded-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-lg">
+            <!-- Image Section -->
+            <div class="relative h-48">
+                @if($course->image)
+                <img src="{{ asset($course->image) }}" alt="{{ $course->name }}" class="w-full h-full object-cover">
+                @else
+                <img src="https://via.placeholder.com/300x200?text=No+Image" alt="No Image" class="w-full h-full object-cover">
+                @endif
             </div>
+
+            <!-- Content Section -->
+            <div class="p-6 flex flex-col items-center justify-center text-center">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">{{ $course->name }}</h3>
+                <a href="{{ route('courses.show', $course->course_id) }}" 
+                   class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                   View Course
+                </a>
+            </div>
+        </div>
         @endforeach
     </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</section>
+
+</main>
 </body>
 </html>

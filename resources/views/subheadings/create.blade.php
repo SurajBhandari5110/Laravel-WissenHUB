@@ -6,6 +6,7 @@
     <title>Create Subheading</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 </head>
 <body>
 <div class="container mt-5">
@@ -28,12 +29,33 @@
             <label for="title">Subheading Title</label>
             <input type="text" class="form-control" name="title" id="title" required>
         </div>
+        <div class="form-group mb-3">
+            <label for="content">Create a blog</label>
+            <textarea class="form-control" name="content" id="content"></textarea>
+        </div>
         
         <button type="submit" class="btn btn-primary">Create Subheading</button>
     </form>
 </div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script>
+    let editorInstance;
+
+    // Initialize CKEditor
+    ClassicEditor
+        .create(document.querySelector('#content'))
+        .then(editor => {
+            editorInstance = editor;
+        })
+        .catch(error => {
+            console.error('Error initializing CKEditor:', error);
+        });
+
+    // Update the textarea before the form submission
+    document.querySelector('form').addEventListener('submit', function (e) {
+        const content = editorInstance.getData(); // Get the content from CKEditor
+        document.querySelector('#content').value = content; // Update the textarea value
+    });
+</script>
 </body>
 </html>

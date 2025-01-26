@@ -1,4 +1,3 @@
-<!-- resources/views/courses/content_titles.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +22,8 @@
                                 <li class="list-group-item">
                                     <small>{{ $subheading->title }}</small>
                                 </li>
+                                
+                                
                             @endforeach
                         </ul>
                     @endforeach
@@ -33,13 +34,16 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Welcome to {{ $course->name }}</h5>
-                        <p class="card-text">Select a content title from the left menu to explore its details.</p>
+                       
+                       
+                        {!! $subheading->content !!}
+                   
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

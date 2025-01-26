@@ -28,8 +28,18 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $subheading->title }}</td>
-                        <td>
-                            <p>create content</p>
+                        <td><!-- View Button -->
+                            <a href="{{ route('subheadings.show', $subheading->subheading_id)}}" class="btn btn-info btn-sm">View</a>
+                            
+                            <!-- Edit Button -->
+                            <a href="{{ route('subheadings.edit', $subheading->subheading_id) }}"class="btn btn-warning btn-sm">Edit</a>
+                            
+                            <!-- Delete Form -->
+                            <form action="{{ route('subheadings.destroy', $subheading->subheading_id) }}" method="POST" style="display: inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this subheading?')">Delete</button>
+                          
                         </td>
                     </tr>
                 @endforeach

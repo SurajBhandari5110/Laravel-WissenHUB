@@ -26,11 +26,42 @@ use App\Http\Controllers\ContentTitleController;
 Route::resource('content_titles', ContentTitleController::class);
 use App\Http\Controllers\SubheadingController;
 
-Route::get('content_titles/subheadings/create', [SubheadingController::class, 'create'])->name('subheadings.create');
-Route::post('content_titles/subheadings/store', [SubheadingController::class, 'store'])->name('subheadings.store');
 
-Route::resource('subheadings', SubheadingController::class);
+// Route to list all subheadings
+Route::get('subheadings/', [SubheadingController::class, 'index'])->name('subheadings.index');
+
+// Route to show the create subheading form
+Route::get('subheadings/create', [SubheadingController::class, 'create'])->name('subheadings.create');
+
+// Route to store a new subheading
+Route::post('subheadings/store', [SubheadingController::class, 'store'])->name('subheadings.store');
+
+// Route to show a specific subheading
+Route::get('subheadings/{id}', [SubheadingController::class, 'show'])->name('subheadings.show');
+
+// Route to show the edit form for a subheading
+Route::get('subheadings/{id}/edit', [SubheadingController::class, 'edit'])->name('subheadings.edit');
+
+
+// Route to update a subheading
+Route::put('subheadings/{id}', [SubheadingController::class, 'update'])->name('subheadings.update');
+
+// Route to delete a subheading
+Route::delete('subheadings/{id}', [SubheadingController::class, 'destroy'])->name('subheadings.destroy');
+
+
+
 use App\Http\Controllers\MenuController;
 
-Route::get('/courses', [MenuController::class, 'showCourses'])->name('courses.index');
+Route::get('/', [MenuController::class, 'showCourses'])->name('courses.index');
 Route::get('/courses/{course_id}', [MenuController::class, 'showContentTitles'])->name('courses.show');
+
+
+
+//API to create SPA
+// use App\Http\Controllers\ApiController;
+
+// Route::get('/courses', [ApiController::class, 'getCourses']);
+// Route::get('/courses/{id}/content', [ApiController::class, 'getCourseContent']);
+
+

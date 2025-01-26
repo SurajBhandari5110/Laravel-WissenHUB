@@ -11,7 +11,9 @@ class Subheading extends Model
 
     protected $table = 'subheadings';
     protected $primaryKey = 'subheading_id';
-    protected $fillable = ['content_id', 'title', 'position'];
+  
+    protected $fillable = ['content_id', 'title', 'content'];
+
 
     public function contentTitle()
     {

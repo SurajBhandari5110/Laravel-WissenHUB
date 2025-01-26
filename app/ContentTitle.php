@@ -21,4 +21,5 @@ class ContentTitle extends Model
     {
         return $this->belongsTo(Course::class, 'course_id', 'course_id'); // Foreign key and local key
     }
+    
 }
