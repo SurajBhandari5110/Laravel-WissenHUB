@@ -89,9 +89,8 @@
 
     <!-- Page Content -->
     <div class="container mt-5">
-        
         <div class="row">
-            <!-- Sidebar Menu -->
+            <!-- Sidebar--- Menu -->
             <div class="col-md-4">
                 <div class="list-group">
                     @foreach ($course->contentTitles as $contentTitle)
