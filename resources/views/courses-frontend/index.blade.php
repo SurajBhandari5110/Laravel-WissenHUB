@@ -76,7 +76,7 @@
             <!-- Content Section -->
             <div class="p-6 flex flex-col items-center justify-center text-center">
                 <h3 class="text-xl font-semibold mb-4 text-gray-800">{{ $course->name }}</h3>
-                <a href="{{ route('courses.show', $course->course_id) }}" 
+                <a href="{{ route('courses-frontend.show', $course->course_id) }}" 
                    class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
                    View Course
                 </a>

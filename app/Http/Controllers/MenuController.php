@@ -11,7 +11,7 @@ class MenuController extends Controller
     public function showCourses()
     {
         $courses = Course::all();
-        return view('courses.index', compact('courses'));
+        return view('courses-frontend.index', compact('courses'));
     }
 
     // Show content titles and subheadings for a specific course
@@ -19,6 +19,6 @@ class MenuController extends Controller
     {
         $course = Course::with(['contentTitles.subheadings'])
                         ->findOrFail($course_id);
-        return view('courses.show', compact('course'));
+        return view('courses-frontend.show', compact('course'));
     }
 }

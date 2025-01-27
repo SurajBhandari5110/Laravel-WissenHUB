@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Titles</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for pagination */
+        .pagination {
+            justify-content: center;
+        }
+        .page-item .page-link {
+            color: #0d6efd; /* Bootstrap primary color */
+        }
+        .page-item.active .page-link {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <div class="container my-5">
@@ -24,7 +38,6 @@
                         <th>Course</th>
                         <th>Content Title</th>
                         <th>Position</th>
-                        
                     </tr>
                 </thead>
                 <tbody>
@@ -34,7 +47,6 @@
                             <td>{{ $contentTitle->course->name }}</td>
                             <td>{{ $contentTitle->title }}</td>
                             <td>{{ $contentTitle->position }}</td>
-                            
                         </tr>
                     @endforeach
                 </tbody>
@@ -42,11 +54,10 @@
         </div>
 
         <!-- Pagination -->
-        <div class="d-flex justify-content-center">
-            {{ $contentTitles->links() }}
+        <div class="d-flex justify-content-center mt-4">
+            {{ $contentTitles->onEachSide(1)->links('pagination::bootstrap-5') }}
         </div>
     </div>
 
-    
 </body>
 </html>

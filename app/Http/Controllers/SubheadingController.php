@@ -3,26 +3,38 @@ namespace App\Http\Controllers;
 
 use App\ContentTitle;
 use App\Subheading;
+use App\Course;
 use Illuminate\Http\Request;
 
 class SubheadingController extends Controller
 {
     public function index()
     {
+        $courses = Course::all();
         $contentTitle = ContentTitle::all();
         $subheadings = Subheading::all();
 
         // Return the view with the subheadings data
-        return view('subheadings.index', compact('subheadings', 'contentTitle'));
+        return view('subheadings.index', compact('subheadings', 'contentTitle','courses'));
     }
 
     public function create()
     {
+        $courses = Course::all();
+        
         $contentTitles = ContentTitle::all();
 
         // Pass all content titles to the create view
-        return view('subheadings.create', compact('contentTitles'));
+        return view('subheadings.create', compact('contentTitles','courses'));
     }
+    public function getContentTitlesByCourse($courseId)
+{
+    // Fetch contentTitles based on the course_id
+    $contentTitles = ContentTitle::where('course_id', $courseId)->get();
+
+    // Return as JSON response
+    return response()->json($contentTitles);
+}
 
     public function store(Request $request)
     {
