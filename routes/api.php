@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+//API to create SPA
+
+
+use App\Http\Controllers\ApiController;
+
+Route::get('/courses', [ApiController::class, 'getCourses']);
+Route::get('/courses/{id}/content', [ApiController::class, 'getCourseContent']);

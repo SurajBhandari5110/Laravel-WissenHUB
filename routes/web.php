@@ -58,10 +58,6 @@ Route::get('/courses/{course_id}', [MenuController::class, 'showContentTitles'])
 
 
 
-//API to create SPA
-// use App\Http\Controllers\ApiController;
 
-// Route::get('/courses', [ApiController::class, 'getCourses']);
-// Route::get('/courses/{id}/content', [ApiController::class, 'getCourseContent']);
 
 
