@@ -101,7 +101,7 @@
                         <!-- Subheadings -->
                         <ul class="list-group">
                             @foreach ($contentTitle->subheadings as $subheading)
-                                <li class="list-group-item bg-white">
+                                <li class="list-group-item bg-white" onclick="showContent('{{ $subheading->content }}')">
                                     <small class="text-muted">{{ $subheading->title }}</small>
                                 </li>
                             @endforeach
@@ -113,14 +113,12 @@
             <!-- Main Content -->
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-body">
-                        @if(isset($subheading->content))
-                            {!! $subheading->content !!}
-                        @else
-                            <p class="main-content-placeholder">
-                                Select a subheading from the left menu to view its content.
-                            </p>
-                        @endif
+                    <div class="card-body" id="main-content">
+                    <h3 class="text-primary mb-3">Welcome to the {{ $course->name }} Course!</h3>
+    <p class="text-muted">
+        Dive into our expertly crafted lessons and master the skills you need. 
+        Select a topic from the menu to start your learning journey today!
+    </p>
                     </div>
                 </div>
             </div>
@@ -129,5 +127,11 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showContent(content) {
+            const mainContentDiv = document.getElementById('main-content');
+            mainContentDiv.innerHTML = content;
+        }
+    </script>
 </body>
 </html>
