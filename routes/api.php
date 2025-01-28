@@ -20,7 +20,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //API to create SPA
 
 
+use App\Http\Controllers\MenuController;
+Route::get('/', [MenuController::class, 'showCourses'])->name('courses-frontend.index');
+Route::get('/courses/{course_id}', [MenuController::class, 'showContentTitles'])->name('courses-frontend.show');
 use App\Http\Controllers\ApiController;
 
 Route::get('/courses', [ApiController::class, 'getCourses']);
-Route::get('/courses/{id}/content', [ApiController::class, 'getCourseContent']);
+Route::get('course/content-titles/{courseId}', [ApiController::class, 'getContentTitlesByCourse']);
+Route::get('/subheadings/{contentId}', [ApiController::class, 'getSubheadingsByContentTitle']);
+Route::get('/subheading-content/{subheadingId}', [ApiController::class, 'getSubheadingContent']);
