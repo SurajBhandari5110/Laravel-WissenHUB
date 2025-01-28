@@ -9,6 +9,8 @@
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f8f9fa;
+            color: #212529;
+            transition: background-color 0.5s, color 0.5s;
         }
         h1 {
             font-size: 2.5rem;
@@ -24,10 +26,10 @@
             color: #0dcaf0;
         }
         .navbar-nav .nav-link {
-            color: #ffffff !important;
+            color: #ffffff;
         }
         .navbar-nav .nav-link:hover {
-            color: #0dcaf0 !important;
+            color: #0dcaf0;
         }
         .list-group-item:hover {
             background-color: #d1e7dd;
@@ -35,10 +37,9 @@
         }
         .card {
             border: none;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
         }
         .list-group {
-            border-radius: 8px;
             overflow: hidden;
         }
         .list-group-item {
@@ -46,11 +47,52 @@
             padding: 12px 16px;
         }
         .list-group-item:not(:last-child) {
+            border-bottom: solid #dee2e6;
             border-bottom: 1px solid #dee2e6;
         }
         .main-content-placeholder {
             text-align: center;
             color: #6c757d;
+        }
+        .dark-mode {
+            background-color:#161c23;
+            color: #f8f9fa;
+        }
+        .dark-mode .navbar {
+            background-color: #000000;
+        }
+        .dark-mode .list-group-item {
+            background-color:rgb(34, 33, 33);
+            color: #f8f9fa;
+        }
+        .dark-mode .list-group-item:hover {
+            background-color:rgb(0, 0, 0);
+        }
+        .dark-mode .card {
+            background-color:rgb(0, 0, 0);
+            color: #f8f9fa;
+        }
+        #dark-mode-toggle {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+        #dark-mode-toggle span {
+            display: inline-block;
+            transition: transform 0.5s ease;
+        }
+        .dark-mode #dark-mode-toggle span {
+            transform: rotate(180deg);
+        }
+        .dark-mode #main-content{
+            background-color:rgb(0, 0, 0);
+            color: #f8f9fa;
+        }
+        .dark-mode .navbar-brand span {
+            color:green;
         }
     </style>
 </head>
@@ -59,7 +101,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="https://via.placeholder.com/30" alt="Logo" class="me-2">
+                
                 Wissen <span>Hub</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,6 +125,9 @@
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
+                <button id="dark-mode-toggle">
+                    <span>🌞</span>
+                </button>
             </div>
         </div>
     </nav>
@@ -90,19 +135,19 @@
     <!-- Page Content -->
     <div class="container mt-5">
         <div class="row">
-            <!-- Sidebar--- Menu -->
+            <!-- Sidebar -->
             <div class="col-md-4">
                 <div class="list-group">
                     @foreach ($course->contentTitles as $contentTitle)
                         <!-- Main Title -->
-                        <a href="#" class="list-group-item list-group-item-action bg-light text-dark fw-bold">
+                        <a href="#" class="list-group-item list-group-item-action fw-bold">
                             {{ $contentTitle->title }}
                         </a>
                         <!-- Subheadings -->
                         <ul class="list-group">
                             @foreach ($contentTitle->subheadings as $subheading)
-                                <li class="list-group-item bg-white" onclick="showContent('{{ $subheading->content }}')">
-                                    <small class="text-muted">{{ $subheading->title }}</small>
+                                <li class="list-group-item" onclick="showContent('{{ $subheading->content }}')">
+                                    <small >{{ $subheading->title }}</small>
                                 </li>
                             @endforeach
                         </ul>
@@ -114,11 +159,11 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body" id="main-content">
-                    <h3 class="text-primary mb-3">Welcome to the {{ $course->name }} Course!</h3>
-    <p class="text-muted">
-        Dive into our expertly crafted lessons and master the skills you need. 
-        Select a topic from the menu to start your learning journey today!
-    </p>
+                        <h3 class="mb-3">Welcome to the {{ $course->name }} Course!</h3>
+                        <p >
+                            Dive into our expertly crafted lessons and master the skills you need. 
+                            Select a topic from the menu to start your learning journey today!
+                        </p>
                     </div>
                 </div>
             </div>
@@ -128,6 +173,15 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        const toggleButton = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const icon = toggleButton.querySelector('span');
+            icon.textContent = body.classList.contains('dark-mode') ? '🌜' : '🌞';
+        });
+
         function showContent(content) {
             const mainContentDiv = document.getElementById('main-content');
             mainContentDiv.innerHTML = content;
