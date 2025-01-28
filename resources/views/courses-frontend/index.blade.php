@@ -37,16 +37,17 @@
 </header>
 <main class="pt-20">
     <!-- Hero Section -->
-    <section class="relative h-screen bg-cover bg-center" style="background-image: url('https://img.freepik.com/free-vector/woman-working-new-app_23-2148682102.jpg?t=st=1737879675~exp=1737883275~hmac=e17ba6338cfe9e14b516920d13a2eb1b74ad63273d3392f2d96a20b771ca7e8e&w=1060');">
-        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center px-4">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-light">
-                Let's Start <span class="font-bold">learning</span>
-            </h1>
-            <p class="text-xl md:text-2xl lg:text-3xl mt-4">
-                Something new today!
-            </p>
-        </div>
-    </section>
+    <section class="relative h-[60vh] bg-cover bg-center" style="background-image: url('https://img.freepik.com/free-vector/woman-working-new-app_23-2148682102.jpg?t=st=1737879675~exp=1737883275~hmac=e17ba6338cfe9e14b516920d13a2eb1b74ad63273d3392f2d96a20b771ca7e8e&w=1060');">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center px-4">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-light">
+            Let's Start <span class="font-bold">learning</span>
+        </h1>
+        <p class="text-xl md:text-2xl lg:text-3xl mt-4">
+            Something new today!
+        </p>
+    </div>
+</section>
+
     
     <!-- Courses Section -->
     <section class="py-12 px-4">
