@@ -53,8 +53,10 @@ Route::delete('subheadings/{id}', [SubheadingController::class, 'destroy'])->nam
 
 use App\Http\Controllers\MenuController;
 
+use App\Http\Controllers\CourseCategoryController;
 Route::get('/', [MenuController::class, 'showCourses'])->name('courses-frontend.index');
 Route::get('/courses/{course_id}', [MenuController::class, 'showContentTitles'])->name('courses-frontend.show');
+
 
 
 Route::get('/subheadings/content-titles/{courseId}', [SubheadingController::class, 'getContentTitlesByCourse'])->name('subheadings.getContentTitlesByCourse');
@@ -62,3 +64,5 @@ Route::get('/subheadings/content-titles/{courseId}', [SubheadingController::clas
 
 
 
+
+Route::resource('course_categories', CourseCategoryController::class);

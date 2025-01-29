@@ -6,6 +6,7 @@ use App\Course;
 use App\ContentTitle;
 use App\Subheading;
 use Illuminate\Http\Request;
+use App\CourseCategory;
 
 class ApiController extends Controller
 {
@@ -13,6 +14,7 @@ class ApiController extends Controller
     public function getCourses()
     {
         $courses = Course::all();
+        
         return response()->json([
             'success' => true,
             'data' => $courses
@@ -73,6 +75,15 @@ class ApiController extends Controller
                 'title' => $subheading->title,
                 'content' => $subheading->content
             ]
+        ]);
+    }
+    public function getcategory()
+    {
+        $categories = CourseCategory::with(['course', 'category'])->get();
+        
+        return response()->json([
+            'success' => true,
+            'data' => $categories
         ]);
     }
 }

@@ -9,6 +9,7 @@
 <body>
     <div class="container">
         <h1 class="my-4">Create Content Title</h1>
+        <a href="{{ route('content_titles.index') }}" class="btn btn-secondary mb-3">Back</a>
 
         @if(session('success'))
             <div class="alert alert-success">
