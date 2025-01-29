@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $course->name }} - Content</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -134,100 +131,6 @@
             </div>
         </div>
     </nav>
-    <nav class="bg-gray-700 p-2">
-   <ul class="flex space-x-4 overflow-x-auto">
-    <li>
-     <a class="text-white" href="#">
-      Trending Now
-     </a>
-    </li>
-    <li>
-     <a class="text-white" href="#">
-      DSA
-     </a>
-    </li>
-    <li>
-     <a class="text-white" href="#">
-      Web Tech
-     </a>
-    </li>
-    <li>
-     <a class="text-white" href="#">
-      Foundational Courses
-     </a>
-    </li>
-    <li>
-     <a class="text-white" href="#">
-      Data Science
-     </a>
-    </li>
-    <li>
-     <a class="text-white" href="#">
-      Practice Problem
-     </a>
-    </li>
-    <li>
-     <a class="text-white" href="#">
-      Python
-     </a>
-    </li>
-    <li>
-     <a class="text-white" href="#">
-      Machine Learning
-     </a>
-    </li>
-    <li>
-     <a class="text-white" href="#">
-      JavaScript
-     </a>
-    </li>
-    <li>
-     <a class="text-white" href="#">
-      System Design
-     </a>
-    </li>
-    <li>
-     <a class="text-white" href="#">
-      Django
-     </a>
-    </li>
-    <li>
-     <a class="text-white" href="#">
-      DevOps Tutorial
-     </a>
-    </li>
-    <li>
-     <a class="text-white" href="#">
-      Java
-     </a>
-    </li>
-    <li>
-     <a class="text-white" href="#">
-      C
-     </a>
-    </li>
-    <li>
-     <a class="text-white" href="#">
-      C++
-     </a>
-    </li>
-    <li>
-     <a class="text-white" href="#">
-      ReactJS
-     </a>
-    </li>
-    <li>
-     <a class="text-white" href="#">
-      NodeJS
-     </a>
-    </li>
-    <li>
-     <a class="text-white" href="#">
-      CP Live
-     </a>
-    </li>
-   </ul>
-  </nav>
 
     <!-- Page Content -->
     <div class="container mt-5">
