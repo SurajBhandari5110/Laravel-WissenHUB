@@ -54,6 +54,54 @@
             text-align: center;
             color: #6c757d;
         }
+        /* Scrollable Navbar */
+.scroll-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.scroll-content {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px 0;
+    white-space: nowrap;
+}
+.scroll-content::-webkit-scrollbar {
+    display: none;
+}
+.related-course-btn {
+    flex: 0 0 auto;
+    margin-left: 20px;
+    padding: 8px 16px;
+    background-color: #343a40;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+.related-course-btn:hover {
+    background-color: #0056b3;
+}
+.scroll-btn {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 10;
+}
+.left {
+    left: -5px;
+}
+.right {
+    right: -5px;
+}
         .dark-mode {
             background-color:#161c23;
             color: #f8f9fa;
@@ -94,6 +142,18 @@
         .dark-mode .navbar-brand span {
             color:green;
         }
+        .dark-mode .scroll-container {
+    background-color: #1a1a1a;
+}
+.dark-mode .related-course-btn {
+    background-color: #218838;
+}
+.dark-mode .related-course-btn:hover {
+    background-color:rgb(0, 141, 61);
+}
+.dark-mode .scroll-btn {
+    background: rgba(255, 255, 255, 0.3);
+}
     </style>
 </head>
 <body>
@@ -132,18 +192,21 @@
         </div>
     </nav>
     <!-- Scrollable Horizontal Navbar for Related Courses -->
+<!-- Scrollable Horizontal Navbar for Related Courses -->
 <div class="container my-4">
-    
-    <div class="d-flex overflow-auto" >
-        @foreach ($relatedCourses as $relatedCourse)
-            <div class="me-3">
-                <a href="{{ route('courses-frontend.show', $relatedCourse->course_id) }}" class="btn ">
+    <div class="scroll-container">
+        <button class="scroll-btn left"><i class="fas fa-chevron-left"></i></button>
+        <div class="scroll-content">
+            @foreach ($relatedCourses as $relatedCourse)
+                <a href="{{ route('courses-frontend.show', $relatedCourse->course_id) }}" class="related-course-btn">
                     {{ $relatedCourse->name }}
                 </a>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
+        <button class="scroll-btn right"><i class="fas fa-chevron-right"></i></button>
     </div>
 </div>
+
 
     <!-- Page Content -->
     <div class="container mt-5">
