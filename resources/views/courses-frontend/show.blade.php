@@ -73,7 +73,7 @@
 }
 .related-course-btn {
     flex: 0 0 auto;
-    margin-left: 20px;
+    
     padding: 8px 16px;
     background-color: #343a40;
     color: white;
@@ -195,7 +195,7 @@
 <!-- Scrollable Horizontal Navbar for Related Courses -->
 <div class="container my-4">
     <div class="scroll-container">
-        <button class="scroll-btn left"><i class="fas fa-chevron-left"></i></button>
+        
         <div class="scroll-content">
             @foreach ($relatedCourses as $relatedCourse)
                 <a href="{{ route('courses-frontend.show', $relatedCourse->course_id) }}" class="related-course-btn">
@@ -203,7 +203,7 @@
                 </a>
             @endforeach
         </div>
-        <button class="scroll-btn right"><i class="fas fa-chevron-right"></i></button>
+       
     </div>
 </div>
 
