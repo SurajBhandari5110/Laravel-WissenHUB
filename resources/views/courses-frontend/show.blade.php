@@ -216,7 +216,7 @@
                 <div class="list-group">
                     @foreach ($course->contentTitles as $contentTitle)
                         <!-- Main Title -->
-                        <a href="#" class="list-group-item list-group-item-action fw-bold">
+                        <a href="" class="list-group-item list-group-item-action fw-bold">
                             {{ $contentTitle->title }}
                         </a>
                         <!-- Subheadings -->
