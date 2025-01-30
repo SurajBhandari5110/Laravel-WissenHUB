@@ -131,6 +131,19 @@
             </div>
         </div>
     </nav>
+    <!-- Scrollable Horizontal Navbar for Related Courses -->
+<div class="container my-4">
+    
+    <div class="d-flex overflow-auto" >
+        @foreach ($relatedCourses as $relatedCourse)
+            <div class="me-3">
+                <a href="{{ route('courses-frontend.show', $relatedCourse->course_id) }}" class="btn ">
+                    {{ $relatedCourse->name }}
+                </a>
+            </div>
+        @endforeach
+    </div>
+</div>
 
     <!-- Page Content -->
     <div class="container mt-5">
