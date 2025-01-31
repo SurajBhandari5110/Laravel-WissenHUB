@@ -20,6 +20,9 @@
             background-color: #121212;
             color: white;
         }
+        .navbar-brand{
+            font-weight: bold;
+        }
         .course-card img {
             height: 200px;
             object-fit: cover;
@@ -32,8 +35,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="https://storage.googleapis.com/a1aa/image/Wexbeu88A9u1QUbfskg9ahZH7u77iRQVjSbmLEG67DOf1kjQB.jpg" alt="Logo" width="40" height="40" class="me-2">
-            <span>Wissen <span class="text-success">Hub</span></span>
+            <img src="{{ asset('images/white_logo.svg') }}" alt="Logo" width="40" height="40" class="me-2">
+            <span>Wissen<span class="text-success">Hub</span></span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -208,7 +211,6 @@
         </div>
     </div>
 </section>
-
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

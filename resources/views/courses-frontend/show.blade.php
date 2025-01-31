@@ -161,8 +161,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
-                
-                Wissen <span>Hub</span>
+            <img src="{{ asset('images/white_logo.svg') }}" alt="Logo" width="40" height="40" class="me-2"> 
+                Wissen<span>Hub</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
