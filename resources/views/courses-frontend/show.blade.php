@@ -191,60 +191,48 @@
             </div>
         </div>
     </nav>
-    <!-- Scrollable Horizontal Navbar for Related Courses -->
-<!-- Scrollable Horizontal Navbar for Related Courses -->
-<div class="container my-4">
-    <div class="scroll-container">
-        
-        <div class="scroll-content">
-            @foreach ($relatedCourses as $relatedCourse)
-                <a href="{{ route('courses-frontend.show', $relatedCourse->course_id) }}" class="related-course-btn">
-                    {{ $relatedCourse->name }}
-                </a>
-            @endforeach
-        </div>
-       
-    </div>
-</div>
-
-
-    <!-- Page Content -->
     <div class="container mt-5">
         <div class="row">
-            <!-- Sidebar -->
             <div class="col-md-4">
                 <div class="list-group">
                     @foreach ($course->contentTitles as $contentTitle)
-                        <!-- Main Title -->
-                        <a href="" class="list-group-item list-group-item-action fw-bold">
+                        <a href="javascript:void(0);" class="list-group-item list-group-item-action fw-bold" onclick="toggleSubheadings(this)">
                             {{ $contentTitle->title }}
                         </a>
-                        <!-- Subheadings -->
-                        <ul class="list-group">
+                        <ul class="list-group d-none">
                             @foreach ($contentTitle->subheadings as $subheading)
                                 <li class="list-group-item" onclick="showContent('{{ $subheading->content }}')">
-                                    <small >{{ $subheading->title }}</small>
+                                    <small>{{ $subheading->title }}</small>
                                 </li>
                             @endforeach
                         </ul>
                     @endforeach
                 </div>
             </div>
-
-            <!-- Main Content -->
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body" id="main-content">
                         <h3 class="mb-3">Welcome to the {{ $course->name }} Course!</h3>
-                        <p >
-                            Dive into our expertly crafted lessons and master the skills you need. 
-                            Select a topic from the menu to start your learning journey today!
-                        </p>
+                        <p>Select a topic from the menu to start your learning journey today!</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function toggleSubheadings(titleElement) {
+            document.querySelectorAll('.list-group ul').forEach(ul => ul.classList.add('d-none'));
+            const subheadingList = titleElement.nextElementSibling;
+            if (subheadingList && subheadingList.tagName === 'UL') {
+                subheadingList.classList.toggle('d-none');
+            }
+        }
+
+        function showContent(content) {
+            document.getElementById('main-content').innerHTML = `<p>${content}</p>`;
+        }
+    </script>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
