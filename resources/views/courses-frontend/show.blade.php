@@ -12,6 +12,22 @@
             color: #212529;
             transition: background-color 0.5s, color 0.5s;
         }
+        .navbar {
+            background-color: #343a40;
+            margin-left: 0;
+            padding-left: 0;
+        }
+        .container-fluid {
+            padding-left: 0;
+            margin-left: 0;
+        }
+        .list-group-item:hover {
+            background-color: #d1e7dd;
+            cursor: pointer;
+        }
+        .d-none {
+            display: none;
+        }
         h1 {
             font-size: 2.5rem;
             font-weight: bold;
@@ -154,9 +170,15 @@
 .dark-mode .scroll-btn {
     background: rgba(255, 255, 255, 0.3);
 }
+.container {
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
+    
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
