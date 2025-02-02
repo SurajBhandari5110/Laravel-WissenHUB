@@ -26,6 +26,8 @@ Route::get('/courses/{course_id}', [MenuController::class, 'showContentTitles'])
 use App\Http\Controllers\ApiController;
 
 Route::get('/courses', [ApiController::class, 'getCourses']);
+Route::get('/getcategory', [ApiController::class, 'getcategory']);
 Route::get('course/content-titles/{courseId}', [ApiController::class, 'getContentTitlesByCourse']);
 Route::get('/subheadings/{contentId}', [ApiController::class, 'getSubheadingsByContentTitle']);
 Route::get('/subheading-content/{subheadingId}', [ApiController::class, 'getSubheadingContent']);
+Route::get('/getcategories/{courseId}', [ApiController::class, 'getcategories']);

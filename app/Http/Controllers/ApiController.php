@@ -86,4 +86,20 @@ class ApiController extends Controller
             'data' => $categories
         ]);
     }
+    public function getcategories($courseId)
+    {
+        // Get the categories related to the current course
+        $categoryIds = CourseCategory::where('course_id', $courseId)->pluck('category_id');
+
+        // Get all courses that belong to these categories
+        $relatedCourses = Course::whereIn('course_id', function ($query) use ($categoryIds) {
+            $query->select('course_id')
+                ->from('course_categories')
+                ->whereIn('category_id', $categoryIds);
+        })->get();
+        return response()->json([
+            'success' => true,
+            'data' => $relatedCourses
+        ]);
+    }
 }
