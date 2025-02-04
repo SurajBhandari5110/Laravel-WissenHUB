@@ -162,10 +162,10 @@
     background-color: #1a1a1a;
 }
 .dark-mode .related-course-btn {
-    background-color: #218838;
+    background-color:rgb(2, 103, 24);
 }
 .dark-mode .related-course-btn:hover {
-    background-color:rgb(0, 141, 61);
+    background-color:rgb(0, 150, 20);
 }
 .dark-mode .scroll-btn {
     background: rgba(255, 255, 255, 0.3);
@@ -173,8 +173,20 @@
 .container {
             margin-left: 0 !important;
             padding-left: 0 !important;
+            margin-top: 2px !important;
             width: 100%;
         }
+        .related-course-btn {
+    flex: 0 0 auto;
+    padding: 8px 16px;
+    background-color:rgb(25, 25, 27);
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    
+}
     </style>
 </head>
 <body>
@@ -213,6 +225,20 @@
             </div>
         </div>
     </nav>
+    
+    
+    <div class="scroll-container">
+        
+        <div class="scroll-content">
+            @foreach ($relatedCourses as $relatedCourse)
+                <a href="{{ route('courses-frontend.show', $relatedCourse->course_id) }}" class="related-course-btn">
+                    {{ $relatedCourse->name }}
+                </a>
+            @endforeach
+        </div>
+        
+    </div>
+
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-4">
