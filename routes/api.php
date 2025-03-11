@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\MenuController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //API to create SPA
 
 
-use App\Http\Controllers\MenuController;
+
 Route::get('/', [MenuController::class, 'showCourses'])->name('courses-frontend.index');
 Route::get('/courses/{course_id}', [MenuController::class, 'showContentTitles'])->name('courses-frontend.show');
 use App\Http\Controllers\ApiController;
@@ -31,3 +32,7 @@ Route::get('course/content-titles/{courseId}', [ApiController::class, 'getConten
 Route::get('/subheadings/{contentId}', [ApiController::class, 'getSubheadingsByContentTitle']);
 Route::get('/subheading-content/{subheadingId}', [ApiController::class, 'getSubheadingContent']);
 Route::get('/getcategories/{courseId}', [ApiController::class, 'getcategories']);
+
+Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
+Route::post('/feedback/store', [FeedbackController::class, 'store']);
+Route::delete('/feedback/{id}', [FeedbackController::class, 'destroy'])->name('feedback.destroy');
