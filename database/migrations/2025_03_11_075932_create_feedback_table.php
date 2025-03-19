@@ -10,7 +10,7 @@ return new class extends Migration {
             $table->string('username');
             $table->string('email');
             $table->text('feedback');
-            $table->binary('file')->nullable(); // ✅ Correct way to store files as binary
+            $table->text('file')->nullable(); // ✅ Correct way to store files as binary
             $table->timestamps();
         });
     }

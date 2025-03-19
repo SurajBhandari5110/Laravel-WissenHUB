@@ -18,6 +18,7 @@
                 <th>Username</th>
                 <th>Email</th>
                 <th>Feedback</th>
+                <th>File</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -27,6 +28,7 @@
                     <td>{{ $feedback->username }}</td>
                     <td>{{ $feedback->email }}</td>
                     <td>{{ $feedback->feedback }}</td>
+                    <td>{{ $feedback->file }}</td>
                     <td>
                         <form action="{{ route('feedback.destroy', $feedback->id) }}" method="POST">
                             @csrf

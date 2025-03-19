@@ -10,7 +10,5 @@ class Feedback extends Model {
 
     protected $fillable = ['username', 'email', 'feedback', 'file'];
     
-    protected $casts = [
-        'file' => 'binary' // Ensure binary storage
-    ];
+   
 }
