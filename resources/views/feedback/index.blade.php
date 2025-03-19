@@ -28,7 +28,9 @@
                     <td>{{ $feedback->username }}</td>
                     <td>{{ $feedback->email }}</td>
                     <td>{{ $feedback->feedback }}</td>
-                    <td>{{ $feedback->file }}</td>
+                    <td>
+                    <a href="{{$feedback->file }}" target="_blank">View File
+                    </td>
                     <td>
                         <form action="{{ route('feedback.destroy', $feedback->id) }}" method="POST">
                             @csrf

@@ -69,6 +69,6 @@ class FeedbackController extends Controller {
         }
 
         $feedback->delete();
-        return response()->json(['message' => 'Feedback deleted successfully'], 200);
+        return redirect()->route('feedback.index')->with('success', 'Feedback deleted successfully');
     }
 }
