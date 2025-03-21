@@ -29,7 +29,11 @@
                     <td>{{ $feedback->email }}</td>
                     <td>{{ $feedback->feedback }}</td>
                     <td>
-                    <a href="{{$feedback->file }}" target="_blank">View File
+                    @if($feedback->file)
+                            <a href="{{ $feedback->file }}" target="_blank">View File</a>
+                        @else
+                            No File
+                        @endif
                     </td>
                     <td>
                         <form action="{{ route('feedback.destroy', $feedback->id) }}" method="POST">
