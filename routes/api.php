@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -36,3 +37,15 @@ Route::get('/getcategories/{courseId}', [ApiController::class, 'getcategories'])
 Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
 Route::post('/feedback/store', [FeedbackController::class, 'store']);
 Route::delete('/feedback/{id}', [FeedbackController::class, 'destroy'])->name('feedback.destroy');
+
+// Public routes
+Route::post('/register', [UserController::class, 'studentRegister']);
+Route::post('/login', [UserController::class, 'userLogin']);
+Route::get('/verification/{id}', [UserController::class, 'verification']);
+Route::post('/verify-otp', [UserController::class, 'verifiedOtp']);
+Route::post('/resend-otp', [UserController::class, 'resendOtp']);
+
+// Protected routes (require authentication)
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/dashboard', [UserController::class, 'loadDashboard']);
+});
